@@ -19,10 +19,12 @@ const Signup = (props) => {
     });
 
     const json = await response.json();
+    console.log(credentials.name);
     console.log(json);
+  
     if (json.success) {
         //Save the authtoken and redirect
-        localStorage.setItem('token', json.authtoken);
+        localStorage.setItem('atoken', json.authToken);
         navigate("/Home");
         props.showAlert("Account created successfully", "success")
 
@@ -39,6 +41,7 @@ const Signup = (props) => {
 
   return (
     <div className="container">
+       <h2 className="my-3" style={{textAlign: "center"}}>Signup to continue with iNOTEBOOK</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
